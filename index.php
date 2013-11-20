@@ -35,8 +35,15 @@
                         <li>
                             <a href="index.php?page=home">Home</a>
                         </li>
-                        <li>
-                            <a href="index.php?page=reviews">Reviews</a>
+                        <li class="dropdown">
+                            <a href="index.php?page=reviews" data-hover="dropdown">Reviews</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">American Lagers</a></li>
+                                <li><a href="#">Light Beers</a></li>
+                                <li><a href="#">Belgian</a></li>
+                                <li><a href="#">Ales</a></li>
+                                <li><a href="#">Imports</a></li>
+                            </ul>
                         </li>
                         <li>
                             <a href="index.php?page=topbeers">Top Beers</a>
@@ -49,12 +56,12 @@
             </div>
         </div>
         <div class="container" id="main">
-            <?php 
+            <?php
                 $whitelist = array("home","reviews", "topbeers", "about");
                 if (isset($_GET['page']) && in_array($_GET['page'], $whitelist)) {
-                    include("include/".$_GET['page'].".php"); 
+                    include("include/".$_GET['page'].".php");
                 }
-                else 
+                else
                     include("include/home.php");
             ?>
         </div>
@@ -65,6 +72,7 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
         <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/vendor/twitter-bootstrap-hover-dropdown.min.js"</script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
     </body>
