@@ -1,4 +1,5 @@
 <?php
+    include("include/dbconnect.php");
     if (isset($_POST['submit'])) {
         // define variables and set to empty values
         $name = $type = $description = "";
@@ -7,12 +8,16 @@
         $type = $_POST["type"];
         $description = $_POST["description"];
 
-        echo $name;
+        $insertbeer = "INSERT INTO beer (beer_name,type,description) VALUES('$name', '$type', '$description')";
+        $dbbeerrecord = mysql_query($insertbeer, $dblocalhost)
+            or die("Problem writing to table: " . mysql_error());
+        /*echo $name;
         echo $type;
-        echo $description;
-    }
+        echo $description;*/
+        echo "<h2>Sumbission Sucessful</h2>";
+        mysql_close($dblocalhost);
+    }   
     else {
-
 ?>
 
 <h2>Add A Beer</h2>
