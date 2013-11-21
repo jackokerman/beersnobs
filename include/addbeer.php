@@ -15,11 +15,11 @@
 
 ?>
 
-<h2>Add Beer To Database</h2>
+<h2>Add A Beer</h2>
 <form method="post" action="" role="form">
     <div class="form-group">
-        <label for="exampleInputEmail1">Beer Name</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Beer Name" name="name">
+        <label for="beername">Beer Name</label>
+        <input type="text" class="form-control" id="beername" placeholder="Beer Name" name="name">
     </div>
     <div class="form-group">
         <label>Beer Type</label>

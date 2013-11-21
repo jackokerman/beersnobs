@@ -44,7 +44,7 @@
                                 <li><a href="#">Ales</a></li>
                                 <li><a href="#">Imports</a></li>
                                 <li class="divider"></li>
-                                <li><a href="#">Submit A Review</a></li>
+                                <li><a href="index.php?page=addreview">Submit A Review</a></li>
                                 <li class="divider"></li>
                                 <li><a href="index.php?page=addbeer">Add Beer</a></li>
                             </ul>
@@ -61,7 +61,7 @@
         </div>
         <div class="container" id="main">
             <?php
-                $whitelist = array("home","reviews", "topbeers", "about", "addbeer");
+                $whitelist = array("home","reviews", "topbeers", "about", "addbeer", "addreview");
                 if (isset($_GET['page']) && in_array($_GET['page'], $whitelist)) {
                     include("include/".$_GET['page'].".php");
                 }
