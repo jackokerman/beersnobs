@@ -43,6 +43,10 @@
                                 <li><a href="#">Belgian</a></li>
                                 <li><a href="#">Ales</a></li>
                                 <li><a href="#">Imports</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Submit A Review</a></li>
+                                <li class="divider"></li>
+                                <li><a href="index.php?page=addbeer">Add Beer</a></li>
                             </ul>
                         </li>
                         <li>
@@ -57,7 +61,7 @@
         </div>
         <div class="container" id="main">
             <?php
-                $whitelist = array("home","reviews", "topbeers", "about");
+                $whitelist = array("home","reviews", "topbeers", "about", "addbeer");
                 if (isset($_GET['page']) && in_array($_GET['page'], $whitelist)) {
                     include("include/".$_GET['page'].".php");
                 }
