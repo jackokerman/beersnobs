@@ -1,8 +1,8 @@
 <?php
-	$dblocalhost = mysql_connect("localhost","root","")
-		or die("Could not connect:". mysql_error());
+	$dblocalhost = mysqli_connect("localhost","root","")
+		or die("Could not connect:". mysqli_error());
 
-	mysql_select_db("beersnobs", $dblocalhost)
-		or die("Could not connect:". mysql_error());
+	mysqli_select_db($dblocalhost, "beersnobs")
+		or die("Could not connect:". mysqli_error($dblocalhost));
 	echo "<h1> Connected to Database! </h1>";
 ?>

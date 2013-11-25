@@ -14,15 +14,15 @@
 
         $insertreview = "INSERT INTO review (user,beer_name,date,taste,aroma,value,comment) 
                         VALUES('$user','$name','$date','$taste','$aroma','$value','$comment')";
-        $dbbeerrecord = mysql_query($insertreview, $dblocalhost)
-            or die("Problem writing to table: " . mysql_error());
+        $dbbeerrecord = mysqli_query($dblocalhost,$insertreview)
+            or die("Problem writing to table: " . mysqli_error($dblocalhost));
         echo "<h2>Sumbission Sucessful</h2>";
 
         echo $name;
         echo $taste;
         echo $aroma;
         echo $value;
-        mysql_close($dblocalhost);
+        mysqli_close($dblocalhost);
     }
     else {
 ?>
@@ -38,15 +38,15 @@
         <select class="form-control" name="name">
             <?php
                 include("include/dbconnect.php");
-                $dbbeerrecord = mysql_query("SELECT beer_name FROM beer", $dblocalhost)
-                    or die("Problem writing to table: " . mysql_error());
+                $dbbeerrecord = mysqli_query($dblocalhost,"SELECT beer_name FROM beer")
+                    or die("Problem writing to table: " . mysqli_error($dblocalhost));
                 
-                while($row = mysql_fetch_array($dbbeerrecord))
+                while($row = mysqli_fetch_array($dbbeerrecord))
                 {
                     echo "<option>" .$row['beer_name'] . "</option>";
                      
                 }
-                mysql_close($dblocalhost);
+                mysqli_close($dblocalhost);
             ?>
         </select>
     </div>

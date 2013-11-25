@@ -10,9 +10,9 @@
     include("include/dbconnect.php");
     // define variables and set to empty values
 
-    $dbbeerrecord = mysql_query("SELECT * FROM beer", $dblocalhost)
-        or die("Problem writing to table: " . mysql_error());
-    while($row = mysql_fetch_array($dbbeerrecord))
+    $dbbeerrecord = mysqli_query($dblocalhost,"SELECT * FROM beer")
+        or die("Problem writing to table: " . mysqli_error($dblocalhost));
+    while($row = mysqli_fetch_array($dbbeerrecord))
   	{
   		echo "<tr>";
   		echo "<td>" .$row['beer_name'] . "</td>";
@@ -20,7 +20,7 @@
   		echo "<td>" . $row['description'] . "</td>";
   		echo "</tr>";
   	}
-  	mysql_close($dblocalhost);
+  	mysqli_close($dblocalhost);
 ?>
 
 </table>

@@ -9,13 +9,13 @@
         $description = $_POST["description"];
 
         $insertbeer = "INSERT INTO beer (beer_name,type,description) VALUES('$name', '$type', '$description')";
-        $dbbeerrecord = mysql_query($insertbeer, $dblocalhost)
-            or die("Problem writing to table: " . mysql_error());
+        $dbbeerrecord = mysqli_query($dblocalhost,$insertbeer)
+            or die("Problem writing to table: " . mysqli_error($dblocalhost));
         /*echo $name;
         echo $type;
         echo $description;*/
         echo "<h2>Sumbission Sucessful</h2>";
-        mysql_close($dblocalhost);
+        mysqli_close($dblocalhost);
     }   
     else {
 ?>
