@@ -12,7 +12,7 @@
         $comment = $_POST["comment"];
         $date = date('m.d.y');
 
-        $insertreview = "INSERT INTO review (user,beer_name,date,taste,aroma,value,comment,id) 
+        $insertreview = "INSERT INTO review (user,beer_name,date,taste,aroma,value,comment) 
                         VALUES('$user','$name','$date','$taste','$aroma','$value','$comment')";
         $dbbeerrecord = mysql_query($insertreview, $dblocalhost)
             or die("Problem writing to table: " . mysql_error());
