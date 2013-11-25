@@ -1,11 +1,12 @@
 <?php
+    include("include/utilities.php");
     include("include/dbconnect.php");
     if (isset($_POST['submit'])) {
         // define variables and set to empty values
         $name = $type = $description = "";
 
         $name = $_POST["name"];
-        $type = $_POST["type"];
+        $type = typeDisplayToDb($_POST["type"]);
         $description = $_POST["description"];
 
         $insertbeer = "INSERT INTO beer (beer_name,type,description) VALUES('$name', '$type', '$description')";
@@ -16,7 +17,7 @@
         echo $description;*/
         echo "<h2>Sumbission Sucessful</h2>";
         mysqli_close($dblocalhost);
-    }   
+    }
     else {
 ?>
 
@@ -30,10 +31,10 @@
         <label>Beer Type</label>
         <select class="form-control" name="type">
           <option>American Lager</option>
-          <option>Light Beers</option>
+          <option>Light Beer</option>
           <option>Belgian</option>
-          <option>Ales</option>
-          <option>Imports</option>
+          <option>Ale</option>
+          <option>Import</option>
           <option>Other</option>
         </select>
     </div>

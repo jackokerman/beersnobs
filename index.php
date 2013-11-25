@@ -38,11 +38,11 @@
                         <li class="dropdown">
                             <a href="index.php?page=reviews" data-hover="dropdown">Reviews</a>
                             <ul class="dropdown-menu">
-                                <li><a href="#" onclick = >American Lagers</a></li>
-                                <li><a href="#">Light Beers</a></li>
-                                <li><a href="#">Belgian</a></li>
-                                <li><a href="#">Ales</a></li>
-                                <li><a href="#">Imports</a></li>
+                                <li><a href="index.php?page=reviews&type=american-lager" onclick = >American Lagers</a></li>
+                                <li><a href="index.php?page=reviews&type=light-beer">Light Beers</a></li>
+                                <li><a href="index.php?page=reviews&type=belgian">Belgian</a></li>
+                                <li><a href="index.php?page=reviews&type=ale">Ales</a></li>
+                                <li><a href="index.php?page=reviews&type=import">Imports</a></li>
                                 <li class="divider"></li>
                                 <li><a href="index.php?page=addreview">Submit A Review</a></li>
                                 <li class="divider"></li>

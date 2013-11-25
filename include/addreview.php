@@ -10,10 +10,9 @@
         $aroma = $_POST["aroma"];
         $value = $_POST["value"];
         $comment = $_POST["comment"];
-        $date = date('m.d.y');
 
-        $insertreview = "INSERT INTO review (user,beer_name,date,taste,aroma,value,comment) 
-                        VALUES('$user','$name','$date','$taste','$aroma','$value','$comment')";
+        $insertreview = "INSERT INTO review (user,beer_name,date,taste,aroma,value,comment)
+                        VALUES('$user','$name',now(),'$taste','$aroma','$value','$comment')";
         $dbbeerrecord = mysqli_query($dblocalhost,$insertreview)
             or die("Problem writing to table: " . mysqli_error($dblocalhost));
         echo "<h2>Sumbission Sucessful</h2>";
@@ -31,7 +30,7 @@
 <form method="post" action="" role="form">
     <div class="form-group">
         <label for="username">Username</label>
-        <input type="text" class="form-control" id="username" placeholder="Ex: John Doe" name="name">
+        <input type="text" class="form-control" id="username" placeholder="Ex: John Doe" name="username">
     </div>
     <div class="form-group">
         <label>Beer</label>
@@ -40,11 +39,11 @@
                 include("include/dbconnect.php");
                 $dbbeerrecord = mysqli_query($dblocalhost,"SELECT beer_name FROM beer")
                     or die("Problem writing to table: " . mysqli_error($dblocalhost));
-                
+
                 while($row = mysqli_fetch_array($dbbeerrecord))
                 {
                     echo "<option>" .$row['beer_name'] . "</option>";
-                     
+
                 }
                 mysqli_close($dblocalhost);
             ?>
