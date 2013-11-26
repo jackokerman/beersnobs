@@ -20,4 +20,8 @@
         }
         return $db_type;
     }
+
+    function roundRating($rating) {
+        return number_format((round($rating * 2) / 2), 1);
+    }
 ?>
