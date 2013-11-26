@@ -45,9 +45,10 @@
                                 <li><a href="index.php?page=reviews&type=import">Imports</a></li>
                                 <li class="divider"></li>
                                 <li><a href="index.php?page=addreview">Submit A Review</a></li>
-                                <li class="divider"></li>
-                                <li><a href="index.php?page=addbeer">Add Beer</a></li>
                             </ul>
+                        </li>
+                        <li>
+                            <a href="index.php?page=addbeer">Add Beer</a>
                         </li>
                         <li>
                             <a href="index.php?page=topbeers">Top Beers</a>

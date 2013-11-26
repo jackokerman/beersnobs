@@ -6,16 +6,16 @@
     // define variables and set to empty values
 
     function printSection($type, $db) {
-        echo "<h2>" . typeDbToDisplay($type) . "</h2>";
+        echo "<hr><h2>" . typeDbToDisplay($type) . "</h2><hr>";
         $result = mysqli_query($db, "SELECT * FROM beer WHERE type='{$type}'")
             or die("Problem querrying table: " . mysqli_error($db));
         echo "<div class='row'>";
         while ($row = mysqli_fetch_array($result)) {
             $url = $_SERVER['REQUEST_URI'] . "&name=" . $row['beer_name'];
-            echo "<div class='col-md-4'>" .
-                "<h3 class='text-center'>" . $row['beer_name'] . "<h3>" .
+            echo "<div class='col-md-3 text-center'>" .
+                "<h3>" . $row['beer_name'] . "<h3>" .
                 "<a href='" . $url . "''>" .
-                    "<img src='img/beer.jpg'>" .
+                    "<img src='img/beer.jpg' style='width: 200px; margin: auto'>" .
                 "</a>" .
             "</div>";
         }
@@ -82,7 +82,7 @@
 
     function printBeerReviews($name, $db) {
         echo "<div class='row'><h3>Reviews</h3></div>";
-        $result = mysqli_query($db, "SELECT * FROM review ORDER BY date")
+        $result = mysqli_query($db, "SELECT * FROM review WHERE beer_name='{$name}' ORDER BY date")
             or die("Problem querrying table: " . mysqli_error($db));
         while ($review = mysqli_fetch_array($result)) {
             printReview($review);
