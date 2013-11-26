@@ -49,35 +49,32 @@
             ?>
         </select>
     </div>
-    <div class="form-group">
-        <label>Taste</label>
-        <select class="form-control" name="taste">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
+    <div id="setratingtaste" class="form-group">
+        <label>Taste: </label>
+        <input id = "tasterate" type="hidden" class="form-control" name="taste">
+        <img src="img/rate_0.gif" id="T1" alt="0" title="Not at All"/>
+        <img src="img/rate_0.gif" id="T2" alt="1" title="Somewhat" />
+        <img src="img/rate_0.gif" id="T3" alt="2" title="Average" />
+        <img src="img/rate_0.gif" id="T4" alt="3" title="Good" />
+        <img src="img/rate_0.gif" id="T5" alt="4" title="Very Good"/>
     </div>
-    <div class="form-group">
-        <label>Aroma</label>
-        <select class="form-control" name="aroma">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
+    <div id="setratingaroma" class="form-group">
+        <label>Aroma: </label>
+        <input id = "aromarate" type="hidden" class="form-control" name="aroma">
+        <img src="img/rate_0.gif" id="A1" alt="0" title="Not at All"/>
+        <img src="img/rate_0.gif" id="A2" alt="1" title="Somewhat" />
+        <img src="img/rate_0.gif" id="A3" alt="2" title="Average" />
+        <img src="img/rate_0.gif" id="A4" alt="3" title="Good" />
+        <img src="img/rate_0.gif" id="A5" alt="4" title="Very Good"/>
     </div>
-    <div class="form-group">
+    <div id="setratingvalue" class="form-group">
         <label>Value</label>
-        <select class="form-control" name="value">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
+        <input id = "valuerate" type="hidden" class="form-control" name="value">
+        <img src="img/rate_0.gif" id="V1" alt="0" title="Not at All"/>
+        <img src="img/rate_0.gif" id="V2" alt="1" title="Somewhat" />
+        <img src="img/rate_0.gif" id="V3" alt="2" title="Average" />
+        <img src="img/rate_0.gif" id="V4" alt="3" title="Good" />
+        <img src="img/rate_0.gif" id="V5" alt="4" title="Very Good"/>
     </div>
     <div class="form-group">
         <label>Comments</label>
@@ -89,3 +86,4 @@
 <?
     }
 ?>
+    
