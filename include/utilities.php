@@ -24,4 +24,14 @@
     function roundRating($rating) {
         return number_format((round($rating * 2) / 2), 1);
     }
+
+    function numberToBeer($rating) {
+        if (floor($rating) != $rating){
+            return "<img src='img/rate_".(string)floor($rating)."_1.gif'>";
+        }
+        else {
+            return "<img src='img/rate_".(string)floor($rating)."_0.gif'>";
+        }
+
+    }
 ?>

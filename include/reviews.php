@@ -42,19 +42,19 @@
                     "<h5>Rating</h5>" .
                     "<div class='row'>" .
                         "<div class='col-md-3'>Taste</div>" .
-                        "<div class='col-md-4'>" . $tasteAvg . "</div>" .
+                        "<div class='col-md-4'>" . numberToBeer(roundRating($tasteAvg)) . "</div>" .
                     "</div>".
                     "<div class='row'>" .
                         "<div class='col-md-3'>Aroma</div>" .
-                        "<div class='col-md-4'>" . $aromaAvg . "</div>" .
+                        "<div class='col-md-4'>" . numberToBeer(roundRating($aromaAvg)) . "</div>" .
                     "</div>".
                     "<div class='row'>" .
                         "<div class='col-md-3'>Value</div>" .
-                        "<div class='col-md-4'>" . $valueAvg . "</div>" .
+                        "<div class='col-md-4'>" . numberToBeer(roundRating($valueAvg)) . "</div>" .
                     "</div>".
                     "<div class='row'>" .
                         "<div class='col-md-3'>Overall</div>" .
-                        "<div class='col-md-4'>" . $overallAvg . "</div>" .
+                        "<div class='col-md-4'>" . numberToBeer(roundRating($overallAvg)) . "</div>" .
                     "</div><br>".
                     "<h5>Description</h5>" .
                     "<div class='row'>" .
@@ -100,19 +100,19 @@
                     "<div class='col-md-4'>" .
                         "<div class='row'>" .
                             "<div class='col-md-6'>Taste</div>" .
-                            "<div class='col-md-6'>" . roundRating($review['taste']) ."</div>" .
+                            "<div class='col-md-6'>" . numberToBeer(roundRating($review['taste'])) ."</div>" .
                         "</div>" .
                         "<div class='row'>" .
                             "<div class='col-md-6'>Aroma</div>" .
-                            "<div class='col-md-6'>" . roundRating($review['aroma']) ."</div>" .
+                            "<div class='col-md-6'>" . numberToBeer(roundRating($review['aroma'])) ."</div>" .
                         "</div>" .
                         "<div class='row'>" .
                             "<div class='col-md-6'>Value</div>" .
-                            "<div class='col-md-6'>" . roundRating($review['value']) ."</div>" .
+                            "<div class='col-md-6'>" . numberToBeer(roundRating($review['value'])) ."</div>" .
                         "</div>" .
                         "<div class='row'>" .
                             "<div class='col-md-6'>Overall</div>" .
-                            "<div class='col-md-6'>" . $overallAvg ."</div>" .
+                            "<div class='col-md-6'>" . numberToBeer($overallAvg) ."</div>" .
                         "</div>" .
                     "</div>" .
                     "<div class='col-md-8'>" .
