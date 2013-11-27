@@ -4,12 +4,12 @@
         // define variables and set to empty values
         $name = $type = $description = "";
 
-        $user    = $_POST["username"];
-        $name    = $_POST["name"];
+        $user    = mysqli_real_escape_string($dblocalhost,$_POST["username"]);
+        $name    = mysqli_real_escape_string($dblocalhost,$_POST["name"]);
         $taste   = $_POST["taste"];
         $aroma   = $_POST["aroma"];
         $value   = $_POST["value"];
-        $comment = $_POST["comment"];
+        $comment = mysqli_real_escape_string($dblocalhost,$_POST["comment"]);
 
         $insertreview = "INSERT INTO review (user,beer_name,date,taste,aroma,value,comment)
                         VALUES('$user','$name',now(),'$taste','$aroma','$value','$comment')";

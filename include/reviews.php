@@ -11,7 +11,7 @@
             or die("Problem querrying table: " . mysqli_error($db));
         echo "<div class='row'>";
         while ($row = mysqli_fetch_array($result)) {
-            $url = $_SERVER['REQUEST_URI'] . "&name=" . $row['beer_name'];
+            $url = $_SERVER['REQUEST_URI'] . "&name=" . urlencode($row['beer_name']);
             echo "<div class='col-md-3 text-center'>" .
                 "<h3>" . $row['beer_name'] . "<h3>" .
                 "<a href='" . $url . "''>" .
@@ -28,11 +28,12 @@
     }
 
     function printBeerHeader($name, $db) {
-        $tasteAvg    = getColAverage("taste", $name, $db);
-        $aromaAvg    = getColAverage("aroma", $name, $db);
-        $valueAvg    = getColAverage("value", $name, $db);
+        $queryName = mysqli_real_escape_string($db,$name);
+        $tasteAvg    = getColAverage("taste", $queryName, $db);
+        $aromaAvg    = getColAverage("aroma", $queryName, $db);
+        $valueAvg    = getColAverage("value", $queryName, $db);
         $overallAvg  = roundRating(($tasteAvg + $aromaAvg + $valueAvg) / 3);
-        $description = getBeerDescription($name, $db);
+        $description = getBeerDescription($queryName, $db);
         echo "<div class='row'>" .
                 "<div class='col-md-4 text-center'>" .
                     "<img src='img/beer.jpg'>".
@@ -73,6 +74,7 @@
     }
 
     function getBeerDescription($name, $db) {
+        //$name = mysqli_real_escape_string($db,$name);
         $result = mysqli_query($db, "SELECT description FROM beer WHERE beer_name='{$name}'")
             or die("Problem querrying table: " . mysqli_error($db));
         $row = mysqli_fetch_row($result);
@@ -81,6 +83,7 @@
     }
 
     function printBeerReviews($name, $db) {
+        $name = mysqli_real_escape_string($db,$name);
         echo "<div class='row'><h3>Reviews</h3></div>";
         echo "<div class='row'>Want to submit your own beer review? Go to our <a href='index.php?page=addreview'>Write a Review</a> page to make it happen</div><br>";
         $result = mysqli_query($db, "SELECT * FROM review WHERE beer_name='{$name}' ORDER BY date")

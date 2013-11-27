@@ -14,6 +14,7 @@
     $result = mysqli_query($dblocalhost, "SELECT beer_name FROM beer")
         or die("Problem querrying table: " . mysqli_error($dblocalhost));
     while ($row = mysqli_fetch_row($result)) {
+        //$row[0] = mysqli_real_escape_string($dblocalhost,$row[0]);
         $beerRank[$row[0]] = getReviewsAvg($row[0], $dblocalhost);
     }
 
@@ -42,12 +43,14 @@
     }
 
     function getBeerType($name, $db) {
+        $name = mysqli_real_escape_string($db,$name);
         $result = mysqli_query($db, "SELECT type FROM beer WHERE beer_name='{$name}'")
             or die("Problem querrying table: " . mysqli_error($db));
         return typeDbToDisplay(mysqli_fetch_row($result)[0]);
     }
 
     function getReviewsAvg($name, $db) {
+        $name = mysqli_real_escape_string($db,$name);
         $tasteAvg = getColAverage("taste", $name, $db);
         $aromaAvg = getColAverage("aroma", $name, $db);
         $valueAvg = getColAverage("value", $name, $db);
@@ -56,6 +59,7 @@
     }
 
     function getColAverage($col, $name, $db) {
+        $name = mysqli_real_escape_string($db,$name);
         $result = mysqli_query($db, "SELECT AVG({$col}) FROM review WHERE beer_name='{$name}' ")
             or die("Problem querrying table: " . mysqli_error($db));
         $row = mysqli_fetch_row($result);

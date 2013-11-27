@@ -5,9 +5,9 @@
         // define variables and set to empty values
         $name = $type = $description = "";
 
-        $name = $_POST["name"];
+        $name = mysqli_real_escape_string($dblocalhost,$_POST["name"]);
         $type = typeDisplayToDb($_POST["type"]);
-        $description = $_POST["description"];
+        $description = mysqli_real_escape_string($dblocalhost,$_POST["description"]);
 
         $insertbeer = "INSERT INTO beer (beer_name,type,description) VALUES('$name', '$type', '$description')";
         $dbbeerrecord = mysqli_query($dblocalhost,$insertbeer)
