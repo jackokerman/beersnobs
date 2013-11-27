@@ -34,11 +34,11 @@
         $overallAvg  = roundRating(($tasteAvg + $aromaAvg + $valueAvg) / 3);
         $description = getBeerDescription($name, $db);
         echo "<div class='row'>" .
-                "<div class='col-md-4'>" .
+                "<div class='col-md-4 text-center'>" .
                     "<img src='img/beer.jpg'>".
                 "</div>".
                 "<div class='col-md-8'>" .
-                    "<h3>" . $name . "</h3>" .
+                    "<h3>" . $name . "</h3><br>" .
                     "<h5>Rating</h5>" .
                     "<div class='row'>" .
                         "<div class='col-md-3'>Taste</div>" .
@@ -55,7 +55,7 @@
                     "<div class='row'>" .
                         "<div class='col-md-3'>Overall</div>" .
                         "<div class='col-md-4'>" . $overallAvg . "</div>" .
-                    "</div>".
+                    "</div><br>".
                     "<h5>Description</h5>" .
                     "<div class='row'>" .
                         "<div class='col-md-12'>" . $description . "</div>" .
@@ -82,6 +82,7 @@
 
     function printBeerReviews($name, $db) {
         echo "<div class='row'><h3>Reviews</h3></div>";
+        echo "<div class='row'>Want to submit your own beer review? Go to our <a href='index.php?page=addreview'>Write a Review</a> page to make it happen</div><br>";
         $result = mysqli_query($db, "SELECT * FROM review WHERE beer_name='{$name}' ORDER BY date")
             or die("Problem querrying table: " . mysqli_error($db));
         while ($review = mysqli_fetch_array($result)) {
@@ -93,7 +94,7 @@
         $overallAvg = roundRating(($review["taste"] + $review["aroma"] + $review["value"]) / 3);
         echo "<div class='row'>" .
                 "<div class='row'>" .
-                    "<div class='col-md-4'>" . $review["user"] . ", " . $review['date'] . "</div>" .
+                    "<div class='col-md-4'><em>" . $review["user"] . ", " . $review['date'] . "</em></div>" .
                 "</div>" .
                 "<div class='row'>" .
                     "<div class='col-md-4'>" .
@@ -118,7 +119,7 @@
                         $review["comment"] .
                     "</div>" .
                 "</div>".
-            "</div>";
+            "</div><br>";
     }
 
     if (isset($_GET['name'])) {
