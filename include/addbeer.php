@@ -59,7 +59,7 @@
     else {
 ?>
 
-<h2>Add A Beer</h2>
+<hr><h1>Add A Beer</h1><hr>
 <form method="post" action="" role="form" enctype="multipart/form-data">
     <div class="row">
         <div class="col-md-6">

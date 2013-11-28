@@ -12,7 +12,7 @@
         echo "<div class='row'>";
         while ($row = mysqli_fetch_array($result)) {
             $url = $_SERVER['REQUEST_URI'] . "&name=" . urlencode($row['beer_name']);
-            echo "<div class='col-md-3 text-center'>" .
+            echo "<div class='col-md-3 col-sm-4 text-center'>" .
                 "<h3>" . $row['beer_name'] . "<h3>" .
                 "<a href='" . $url . "''>" .
                     "<img src='img/beer.jpg' style='width: 200px; margin: auto'>" .

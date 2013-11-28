@@ -29,7 +29,7 @@
 <form method="post" action="" role="form">
     <div class="row">
         <div class="col-md-6">
-            <h2>Submit A Review</h2>
+            <hr><h1>Submit A Review</h1><hr>
         </div>
     </div>
     <div class="row">

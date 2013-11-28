@@ -1,4 +1,4 @@
-<h1>TopBeers</h1>
+<hr><h1>TopBeers</h1><hr>
 
 
 <?php
