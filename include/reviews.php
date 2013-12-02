@@ -44,7 +44,7 @@
         }
         echo "<div class='row'>" .
                 "<div class='col-md-4 text-center'>" .
-                    "<img src='img/beer.jpg'>".
+                    "<img src='" . getBeerImage($name, $db) . "' style='height: 450px;'>".
                 "</div>".
                 "<div class='col-md-8'>" .
                     "<h3>" . $name . "</h3><br>" .
