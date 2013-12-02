@@ -11,7 +11,7 @@
     // while($row = mysqli_fetch_array($dbbeerrecord))
 
     $beerRank = array();
-    $result = mysqli_query($dblocalhost, "SELECT beer_name FROM beer")
+    $result = mysqli_query($dblocalhost, "SELECT beer_name, image FROM beer")
         or die("Problem querrying table: " . mysqli_error($dblocalhost));
     while ($row = mysqli_fetch_row($result)) {
         //$row[0] = mysqli_real_escape_string($dblocalhost,$row[0]);
@@ -36,7 +36,7 @@
                         "<td>{$i}</td>" .
                         "<td>" .
                             "<a href='index.php?page=reviews&name=" . urlencode($name) . "'>" .
-                                "<img src='img/beer.jpg' style='height: 150px;'>" .
+                                "<img src='". getBeerImage($name, $dblocalhost) ."' style='height: 150px;'>" .
                             "</a>" .
                         "</td>" .
                         "<td>{$name}</td>" .
@@ -71,6 +71,13 @@
         $row = mysqli_fetch_row($result);
         $avg = $row[0];
         return $avg;
+    }
+
+    function getBeerImage($name, $db) {
+        $name = mysqli_real_escape_string($db,$name);
+        $result = mysqli_query($db, "SELECT image FROM beer WHERE beer_name='{$name}'")
+            or die("Problem querrying table: " . mysqli_error($db));
+        return mysqli_fetch_row($result)[0];
     }
 
     mysqli_close($dblocalhost);

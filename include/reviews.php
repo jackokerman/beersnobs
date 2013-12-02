@@ -15,7 +15,7 @@
             echo "<div class='col-md-3 col-sm-4 text-center'>" .
                 "<h3>" . $row['beer_name'] . "<h3>" .
                 "<a href='" . $url . "''>" .
-                    "<img src='img/beer.jpg' style='width: 200px; margin: auto'>" .
+                    "<img src='".$row['image']."' style='height: 200px; margin: auto'>" .
                 "</a>" .
             "</div>";
         }
