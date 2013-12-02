@@ -50,11 +50,12 @@
                         include("include/dbconnect.php");
                         $dbbeerrecord = mysqli_query($dblocalhost,"SELECT beer_name FROM beer")
                             or die("Problem writing to table: " . mysqli_error($dblocalhost));
-
-                        while($row = mysqli_fetch_array($dbbeerrecord))
-                        {
-                            echo "<option>" .$row['beer_name'] . "</option>";
-
+                        while ($row = mysqli_fetch_array($dbbeerrecord)) {
+                            if (isset($_GET["beer"]) && $row["beer_name"] == $_GET["beer"]) {
+                                echo "<option selected='selected'>" .$row['beer_name'] . "</option>";
+                            }
+                            else
+                                echo "<option>" .$row['beer_name'] . "</option>";
                         }
                         mysqli_close($dblocalhost);
                     ?>

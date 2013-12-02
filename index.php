@@ -60,7 +60,7 @@
                 </div>
             </div>
         </div>
-        <div class="container" id="main">
+        <div class="container" id="main" style="margin-bottom: 60px;">
             <?php
                 $whitelist = array("home","reviews", "topbeers", "about", "addbeer", "addreview");
                 if (isset($_GET['page']) && in_array($_GET['page'], $whitelist)) {
@@ -72,7 +72,7 @@
         </div>
         <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
             <div class="container text-center">
-                <div class="col-md-3 col-md-offset-5">
+                <div class="col-md-3 col-md-offset-5 col-sm-4 col-sm-offset-5 col-xs-6 col-xs-offset-4">
                     <span class='navbar-text'>&copy Beersnobs 2013</span>
                 </div>
             </div>

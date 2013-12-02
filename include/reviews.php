@@ -43,10 +43,10 @@
                 "</div>";
         }
         echo "<div class='row'>" .
-                "<div class='col-md-4 text-center'>" .
+                "<div class='col-md-4 col-sm-4 text-center'>" .
                     "<img src='" . getBeerImage($name, $db) . "' style='height: 450px;'>".
                 "</div>".
-                "<div class='col-md-8'>" .
+                "<div class='col-md-8 col-sm-8'>" .
                     "<h3>" . $name . "</h3><br>" .
                     "<h5>Rating</h5>" .
                     "<div class='row'>" .
@@ -93,7 +93,7 @@
     function printBeerReviews($name, $db) {
         $name = mysqli_real_escape_string($db,$name);
         echo "<div class='row'><h3>Reviews</h3></div>";
-        echo "<div class='row'>Want to submit your own beer review? Go to our <a href='index.php?page=addreview'>Write a Review</a> page to make it happen.</div><br>";
+        echo "<div class='row'>Want to submit your own " . $name . " review? Go to our <a href='index.php?page=addreview&beer={$name}'>Write a Review</a> page to make it happen.</div><br>";
         $result = mysqli_query($db, "SELECT * FROM review WHERE beer_name='{$name}' ORDER BY date")
             or die("Problem querrying table: " . mysqli_error($db));
         while ($review = mysqli_fetch_array($result)) {
@@ -105,28 +105,28 @@
         $overallAvg = roundRating(($review["taste"] + $review["aroma"] + $review["value"]) / 3);
         echo "<div class='row'>" .
                 "<div class='row'>" .
-                    "<div class='col-md-4'><em>" . $review["user"] . ", " . $review['date'] . "</em></div>" .
+                    "<div class='col-md-4 col-sm-4'><em>" . $review["user"] . ", " . $review['date'] . "</em></div>" .
                 "</div>" .
                 "<div class='row'>" .
-                    "<div class='col-md-4'>" .
+                    "<div class='col-md-4 col-sm-4'>" .
                         "<div class='row'>" .
-                            "<div class='col-md-6'>Taste</div>" .
-                            "<div class='col-md-6'>" . numberToBeer(roundRating($review['taste'])) ."</div>" .
+                            "<div class='col-md-6 col-sm-6'>Taste</div>" .
+                            "<div class='col-md-6 col-sm-6'>" . numberToBeer(roundRating($review['taste'])) ."</div>" .
                         "</div>" .
                         "<div class='row'>" .
-                            "<div class='col-md-6'>Aroma</div>" .
-                            "<div class='col-md-6'>" . numberToBeer(roundRating($review['aroma'])) ."</div>" .
+                            "<div class='col-md-6 col-sm-6'>Aroma</div>" .
+                            "<div class='col-md-6 col-sm-6'>" . numberToBeer(roundRating($review['aroma'])) ."</div>" .
                         "</div>" .
                         "<div class='row'>" .
-                            "<div class='col-md-6'>Value</div>" .
-                            "<div class='col-md-6'>" . numberToBeer(roundRating($review['value'])) ."</div>" .
+                            "<div class='col-md-6 col-sm-6'>Value</div>" .
+                            "<div class='col-md-6 col-sm-6'>" . numberToBeer(roundRating($review['value'])) ."</div>" .
                         "</div>" .
                         "<div class='row'>" .
-                            "<div class='col-md-6'>Overall</div>" .
-                            "<div class='col-md-6'>" . numberToBeer($overallAvg) ."</div>" .
+                            "<div class='col-md-6 col-sm-6'>Overall</div>" .
+                            "<div class='col-md-6 col-sm-6'>" . numberToBeer($overallAvg) ."</div>" .
                         "</div>" .
                     "</div>" .
-                    "<div class='col-md-8'>" .
+                    "<div class='col-md-8 col-sm-8'>" .
                         $review["comment"] .
                     "</div>" .
                 "</div>".
