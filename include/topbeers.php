@@ -24,7 +24,7 @@
             "<thead>" .
                 "<tr>" .
                     "<th>#</th>" .
-                    "<th>Image</th>" .
+                    "<th class='text-center'>Image</th>" .
                     "<th>Name</th>" .
                     "<th>Type</th>" .
                     "<th>Rating</th>" .
@@ -34,7 +34,7 @@
             foreach ($beerRank as $name => $rating) {
                 echo "<tr>" .
                         "<td>{$i}</td>" .
-                        "<td>" .
+                        "<td class='text-center'>" .
                             "<a href='index.php?page=reviews&name=" . urlencode($name) . "'>" .
                                 "<img src='". getBeerImage($name, $dblocalhost) ."' style='height: 150px;'>" .
                             "</a>" .
@@ -71,13 +71,6 @@
         $row = mysqli_fetch_row($result);
         $avg = $row[0];
         return $avg;
-    }
-
-    function getBeerImage($name, $db) {
-        $name = mysqli_real_escape_string($db,$name);
-        $result = mysqli_query($db, "SELECT image FROM beer WHERE beer_name='{$name}'")
-            or die("Problem querrying table: " . mysqli_error($db));
-        return mysqli_fetch_row($result)[0];
     }
 
     mysqli_close($dblocalhost);
