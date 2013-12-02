@@ -12,7 +12,7 @@
     <div class="carousel-inner">
         <div class="item active">
             <a href="index.php?page=reviews">
-                <img src="img/beer.jpg" alt="First Slide">
+                <img src="img/home_1.png" alt="First Slide">
             </a>
             <div class="carousel-caption">
                 <h2>Reviews</h2>
@@ -20,7 +20,7 @@
         </div>
         <div class="item">
             <a href="index.php?page=addreview">
-                <img src="img/beer.jpg" alt="Second Slide">
+                <img src="img/home_2.png" alt="Second Slide">
             </a>
             <div class="carousel-caption">
                 <h2>Submit Review</h2>
@@ -28,7 +28,7 @@
         </div>
         <div class="item">
             <a href="index.php?page=addbeer">
-                <img src="img/beer.jpg" alt="Third Slide">
+                <img src="img/home_3.png" alt="Third Slide">
             </a>
             <div class="carousel-caption">
                 <h2>Add Beer</h2>
@@ -36,7 +36,7 @@
         </div>
         <div class="item">
             <a href="index.php?page=topbeers">
-                <img src="img/beer.jpg" alt="Fourth Slide">
+                <img src="img/home_4.png" alt="Fourth Slide">
             </a>
             <div class="carousel-caption">
                 <h2>Top Beers</h2>
