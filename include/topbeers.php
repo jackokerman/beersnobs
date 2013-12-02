@@ -20,27 +20,33 @@
 
     arsort($beerRank);
     $i = 1;
-    foreach ($beerRank as $name => $rating) {
-        // echo "$name = $rating" . "<br>";
-        echo "<div class='row text-center'>" .
-                "<div class='col-md-1'>" .
-                    "<h3>{$i}</h3>".
-                "</div>" .
-                "<div class='col-md-3'>" .
-                    "<img src='img/beer.jpg' style='height: 150px;'>" .
-                "</div>" .
-                "<div class='col-md-3'>" .
-                    "<h3>{$name}</h3>".
-                "</div>" .
-                "<div class='col-md-3'>" .
-                    "<h3>" . getBeerType($name, $dblocalhost) . "</h3>" .
-                "</div>" .
-                "<div class='col-md-2'>" .
-                    "<h3>" . number_format($rating, 1) . "</h3>" .
-                "</div>" .
-            "</div>";
-        $i++;
-    }
+    echo "<table class='table'>" .
+            "<thead>" .
+                "<tr>" .
+                    "<th>#</th>" .
+                    "<th>Image</th>" .
+                    "<th>Name</th>" .
+                    "<th>Type</th>" .
+                    "<th>Rating</th>" .
+                "<tr>" .
+            "</thead>" .
+            "<tbody>";
+            foreach ($beerRank as $name => $rating) {
+                echo "<tr>" .
+                        "<td>{$i}</td>" .
+                        "<td>" .
+                            "<a href='index.php?page=reviews&name=" . urlencode($name) . "'>" .
+                                "<img src='img/beer.jpg' style='height: 150px;'>" .
+                            "</a>" .
+                        "</td>" .
+                        "<td>{$name}</td>" .
+                        "<td>" . getBeerType($name, $dblocalhost) . "</td>" .
+                        "<td>" . number_format($rating, 1) . "</td>" .
+                    "</tr>";
+                $i++;
+            }
+     echo   "</tbody>" .
+        "</table>";
 
     function getBeerType($name, $db) {
         $name = mysqli_real_escape_string($db,$name);

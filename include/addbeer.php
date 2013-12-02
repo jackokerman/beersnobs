@@ -53,7 +53,7 @@
         /*echo $name;
         echo $type;
         echo $description;*/
-        echo "<h2>Sumbission Sucessful</h2>";
+        header("Location: index.php?page=reviews&added=" . urlencode($_POST["name"]));
         mysqli_close($dblocalhost);
     }
     else {
@@ -92,9 +92,9 @@
             </div>
         </div>
     </div>
-<!--    
+<!--
     <div class="row">
-        <div class="col-md-6"> 
+        <div class="col-md-6">
             <div class="form-group">
                 <label for="file">Upload Image: </label>
                 <input type="file" name="file" id="file"><br>

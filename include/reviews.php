@@ -28,12 +28,20 @@
     }
 
     function printBeerHeader($name, $db) {
-        $queryName = mysqli_real_escape_string($db,$name);
+        $queryName   = mysqli_real_escape_string($db,$name);
         $tasteAvg    = getColAverage("taste", $queryName, $db);
         $aromaAvg    = getColAverage("aroma", $queryName, $db);
         $valueAvg    = getColAverage("value", $queryName, $db);
         $overallAvg  = roundRating(($tasteAvg + $aromaAvg + $valueAvg) / 3);
         $description = getBeerDescription($queryName, $db);
+        if (isset($_GET['reviewed'])) {
+            echo "<div class='col-md-12'>" .
+                    "<div class='alert alert-success' style='margin-top: 20px;'>".
+                        "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>" .
+                        "<strong>Well Done {$_GET['reviewed']}!</strong> You succesfully submitted a review for <strong>{$name}</strong> to the Beersnobs database." .
+                    "</div>" .
+                "</div>";
+        }
         echo "<div class='row'>" .
                 "<div class='col-md-4 text-center'>" .
                     "<img src='img/beer.jpg'>".
@@ -135,6 +143,14 @@
         }
 
         else {
+            if (isset($_GET['added'])) {
+                echo "<div class='col-md-12'>" .
+                        "<div class='alert alert-success' style='margin-top: 20px;'>".
+                            "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>" .
+                            "<strong>Well Done!</strong> You succesfully added <strong>" .  $_GET['added'] ."</strong> to the Beersnobs database." .
+                        "</div>" .
+                    "</div>";
+            }
             $types = array("american-lager", "light-beer", "belgian", "ale", "import");
             foreach($types as $type) {
                 printSection($type, $dblocalhost);
