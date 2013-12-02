@@ -93,7 +93,7 @@
     function printBeerReviews($name, $db) {
         $name = mysqli_real_escape_string($db,$name);
         echo "<div class='row'><h3>Reviews</h3></div>";
-        echo "<div class='row'>Want to submit your own beer review? Go to our <a href='index.php?page=addreview'>Write a Review</a> page to make it happen</div><br>";
+        echo "<div class='row'>Want to submit your own beer review? Go to our <a href='index.php?page=addreview'>Write a Review</a> page to make it happen.</div><br>";
         $result = mysqli_query($db, "SELECT * FROM review WHERE beer_name='{$name}' ORDER BY date")
             or die("Problem querrying table: " . mysqli_error($db));
         while ($review = mysqli_fetch_array($result)) {

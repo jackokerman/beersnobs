@@ -70,6 +70,13 @@
                     include("include/home.php");
             ?>
         </div>
+        <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+            <div class="container text-center">
+                <div class="col-md-3 col-md-offset-5">
+                    <span class='navbar-text'>&copy Beersnobs 2013</span>
+                </div>
+            </div>
+        </nav>
 
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
