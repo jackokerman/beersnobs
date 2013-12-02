@@ -27,7 +27,7 @@
     else {
 ?>
 
-<form method="post" action="" role="form">
+<form method="post" action="" role="form" onsubmit="return validateReview()">
     <div class="row">
         <div class="col-md-12">
             <hr><h1>Submit A Review</h1><hr>
@@ -117,7 +117,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label>Comments</label>
-                <textarea class="form-control" rows="5" name="comment"></textarea>
+                <textarea id="comment" class="form-control" rows="5" name="comment"></textarea>
             </div>
         </div>
     </div>

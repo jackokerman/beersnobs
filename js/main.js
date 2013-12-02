@@ -67,3 +67,60 @@ function setRating(point,type) {
        		document.getElementById(stars[i]).src="img/rate_1.gif";
     }
 }
+
+function validateBeer() {
+    var errorMessage = "The information entered has following error(s): \n";
+    var valid = true;
+
+    if ($("#beername").val() === "") {
+        errorMessage += "\n\t\u2022 Beer Name must not be left blank";
+        valid = false;
+    }
+
+    if ($("#description").val() === "") {
+        errorMessage += "\n\t\u2022 Beer Description must not be left blank";
+        valid = false;
+    }
+
+    if (!valid) {
+        alert(errorMessage);
+    }
+
+    return valid;
+}
+
+function validateReview() {
+    var errorMessage = "The information entered has following error(s): \n";
+    var valid = true;
+
+    if ($("#username").val() === "") {
+        errorMessage += "\n\t\u2022 Username must not be left blank";
+        valid = false;
+    }
+
+    if (Number($("#tasterate").val()) === 0) {
+        errorMessage += "\n\t\u2022 Taste must must be greater than 0";
+        valid = false;
+    }
+
+    if (Number($("#aromarate").val()) === 0) {
+        errorMessage += "\n\t\u2022 Taste must must be greater than 0";
+        valid = false;
+    }
+
+    if (Number($("#valuerate").val()) === 0) {
+        errorMessage += "\n\t\u2022 Taste must must be greater than 0";
+        valid = false;
+    }
+
+    if ($("#comment").val() === "") {
+        errorMessage += "\n\t\u2022 Comments section must not be left blank";
+        valid = false;
+    }
+
+    if (!valid) {
+        alert(errorMessage);
+    }
+
+    return valid;
+}

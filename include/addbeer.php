@@ -60,7 +60,7 @@
 ?>
 
 <hr><h1>Add A Beer</h1><hr>
-<form method="post" action="" role="form" enctype="multipart/form-data">
+<form method="post" action="" role="form" enctype="multipart/form-data" onsubmit="return validateBeer()">
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
@@ -88,7 +88,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label>Beer Description</label>
-                <textarea class="form-control" rows="5" name="description"></textarea>
+                <textarea id="description" class="form-control" rows="5" name="description"></textarea>
             </div>
         </div>
     </div>
