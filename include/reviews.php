@@ -44,26 +44,26 @@
         }
         echo "<div class='row'>" .
                 "<div class='col-md-4 col-sm-4 text-center'>" .
-                    "<img src='" . getBeerImage($name, $db) . "' style='height: 450px;'>".
+                    "<img src='" . getBeerImage($name, $db) . "' style='height: 450px; margin-top: 20px;'>".
                 "</div>".
                 "<div class='col-md-8 col-sm-8'>" .
                     "<h3>" . $name . "</h3><br>" .
                     "<h5>Rating</h5>" .
                     "<div class='row'>" .
-                        "<div class='col-md-3'>Taste</div>" .
-                        "<div class='col-md-4'>" . numberToBeer(roundRating($tasteAvg)) . "</div>" .
+                        "<div class='col-md-3 col-sm-3'>Taste</div>" .
+                        "<div class='col-md-4 col-sm-4'>" . numberToBeer(roundRating($tasteAvg)) . "</div>" .
                     "</div>".
                     "<div class='row'>" .
-                        "<div class='col-md-3'>Aroma</div>" .
-                        "<div class='col-md-4'>" . numberToBeer(roundRating($aromaAvg)) . "</div>" .
+                        "<div class='col-md-3 col-sm-3'>Aroma</div>" .
+                        "<div class='col-md-4 col-sm-4'>" . numberToBeer(roundRating($aromaAvg)) . "</div>" .
                     "</div>".
                     "<div class='row'>" .
-                        "<div class='col-md-3'>Value</div>" .
-                        "<div class='col-md-4'>" . numberToBeer(roundRating($valueAvg)) . "</div>" .
+                        "<div class='col-md-3 col-sm-3'>Value</div>" .
+                        "<div class='col-md-4 col-sm-4'>" . numberToBeer(roundRating($valueAvg)) . "</div>" .
                     "</div>".
                     "<div class='row'>" .
-                        "<div class='col-md-3'>Overall</div>" .
-                        "<div class='col-md-4'>" . numberToBeer(roundRating($overallAvg)) . "</div>" .
+                        "<div class='col-md-3 col-sm-3'>Overall</div>" .
+                        "<div class='col-md-4 col-sm-4'>" . numberToBeer(roundRating($overallAvg)) . "</div>" .
                     "</div><br>".
                     "<h5>Description</h5>" .
                     "<div class='row'>" .
@@ -82,7 +82,6 @@
     }
 
     function getBeerDescription($name, $db) {
-        //$name = mysqli_real_escape_string($db,$name);
         $result = mysqli_query($db, "SELECT description FROM beer WHERE beer_name='{$name}'")
             or die("Problem querrying table: " . mysqli_error($db));
         $row = mysqli_fetch_row($result);

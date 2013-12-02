@@ -1,4 +1,4 @@
-<hr><h1>TopBeers</h1><hr>
+<hr><h1>Top Beers</h1><hr>
 
 
 <?php
@@ -6,15 +6,10 @@
     include("include/utilities.php");
     // define variables and set to empty values
 
-    // $dbbeerrecord = mysqli_query($dblocalhost,"SELECT * FROM beer")
-    //     or die("Problem writing to table: " . mysqli_error($dblocalhost));
-    // while($row = mysqli_fetch_array($dbbeerrecord))
-
     $beerRank = array();
     $result = mysqli_query($dblocalhost, "SELECT beer_name, image FROM beer")
         or die("Problem querrying table: " . mysqli_error($dblocalhost));
     while ($row = mysqli_fetch_row($result)) {
-        //$row[0] = mysqli_real_escape_string($dblocalhost,$row[0]);
         $beerRank[$row[0]] = getReviewsAvg($row[0], $dblocalhost);
     }
 

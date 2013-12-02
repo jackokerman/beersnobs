@@ -15,12 +15,7 @@
                         VALUES('$user','$name',now(),'$taste','$aroma','$value','$comment')";
         $dbbeerrecord = mysqli_query($dblocalhost,$insertreview)
             or die("Problem writing to table: " . mysqli_error($dblocalhost));
-        // echo "<h2>Sumbission Sucessful</h2>";
 
-        // echo $name;
-        // echo $taste;
-        // echo $aroma;
-        // echo $value;
         header("Location: index.php?page=reviews&name=" . urlencode($_POST["name"]) . "&reviewed={$user}");
         mysqli_close($dblocalhost);
     }

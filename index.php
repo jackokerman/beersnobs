@@ -72,7 +72,7 @@
         </div>
         <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
             <div class="container text-center">
-                <div class="col-md-3 col-md-offset-5 col-sm-4 col-sm-offset-5 col-xs-6 col-xs-offset-4">
+                <div class="col-md-3 col-md-offset-5 col-sm-4 col-sm-offset-4 col-lg-3 col-lg-offset-5">
                     <span class='navbar-text'>&copy Beersnobs 2013</span>
                 </div>
             </div>

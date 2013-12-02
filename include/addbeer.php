@@ -10,10 +10,6 @@
         $type = typeDisplayToDb($_POST["type"]);
         $description = mysqli_real_escape_string($dblocalhost,$_POST["description"]);
 
-        // $insertbeer = "INSERT INTO beer (beer_name,type,description) VALUES('$name', '$type', '$description')";
-        // $dbbeerrecord = mysqli_query($dblocalhost,$insertbeer)
-        //     or die("Problem writing to table: " . mysqli_error($dblocalhost));
-
         $allowedExts = array("gif", "jpeg", "jpg", "png");
         $temp = explode(".", $_FILES["file"]["name"]);
         $extension = end($temp);
@@ -30,13 +26,8 @@
             echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
             }
             else {
-                // echo "Upload: " . $_FILES["file"]["name"] . "<br>";
-                // echo "Type: " . $_FILES["file"]["type"] . "<br>";
-                // echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
-                // echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
                 $imglocation =  "img/uploaded/" . preg_replace("/[^a-zA-Z0-9]/", "", $_POST["name"]) . "." . $extension;
                 if (file_exists($imglocation)) {
-                    //echo $_FILES["file"]["name"] . " already exists. ";
                     echo "<div class='col-md-12'>" .
                         "<div class='alert alert-danger' style='margin-top: 20px;'>".
                             "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>" .
@@ -44,17 +35,16 @@
                         "</div>" .
                     "</div>";
                 }
-                else{
+                else {
                     move_uploaded_file($_FILES["file"]["tmp_name"], $imglocation);
                     $upgood = 1;
                 }
             }
         }
-        elseif ($_FILES["file"]["name"] == "") {
+        else if ($_FILES["file"]["name"] == "") {
             $imglocation = "img/stock.jpg";
         }
-        else
-        {
+        else {
             echo "<div class='col-md-12'>" .
                     "<div class='alert alert-danger' style='margin-top: 20px;'>".
                         "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>" .
@@ -63,12 +53,7 @@
                 "</div>";
         }
 
-
-
-        /*echo $name;
-        echo $type;
-        echo $description;*/
-        if ($upgood == 1){
+        if ($upgood == 1) {
             $insertbeer = "INSERT INTO beer (beer_name,type,description,image) VALUES('$name', '$type', '$description', '$imglocation')";
             $dbbeerrecord = mysqli_query($dblocalhost,$insertbeer)
                 or die("Problem writing to table: " . mysqli_error($dblocalhost));
@@ -76,7 +61,6 @@
         }
         mysqli_close($dblocalhost);
     }
-    //else {
 ?>
 
 <hr><h1>Add A Beer</h1><hr>
@@ -118,19 +102,15 @@
             <div class="form-group">
                 <div style="position:relative;">
                     <a class='btn btn-default'>
-                        Choose File...
-                    <input type="file" style='position:absolute;z-index:2;top:0;left:0;opacity:0;' name="file" id='file' size="40"  onchange='$("#upload-file-info").html($(this).val());'>
+                        Upload Image
+                        <input type="file" style='position:absolute; z-index:2; top:0; left:0; opacity:0; width:115px; height: 37px;' name="file" id='file' size="40"  onchange='$("#upload-file-info").html($(this).val());'>
                      </a>
                      &nbsp;
                     <span class='label label-info' id="upload-file-info"></span>
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
 
     <button type="submit" class="btn btn-default" value="submit" name="submit">Submit</button>
 </form>
-
-<?
- //   }
-?>
